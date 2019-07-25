@@ -1,0 +1,25 @@
+{:paths ["src"]
+ :deps  {org.clojure/clojure       {:mvn/version "release"}
+         org.clojure/tools.logging {:mvn/version "0.4.1"}
+         org.clojure/java.data     {:mvn/version "0.1.1"}
+
+         keycloak-clojure          {:mvn/version "LATEST"}
+         }
+ :aliases {
+           :repl  {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+                   :main-opts  ["-m" "figwheel.main" "-b" "dev" "-r"]}
+           :dev   {}
+           :test  {:extra-paths ["test"]
+                   :extra-deps  {lambdaisland/kaocha {:mvn/version "latest"}}}
+           :build {:extra-deps {luchiniatwork/cambada {:git/url "https://github.com/xfthhxk/cambada.git"
+                                                       :sha     "8fdc7d29a41620ad3e9e6210fd7140f3a4c7936b"}}
+                   :main-opts  ["-m" "cambada.jar"]}
+
+           :artifact-name {:extra-deps {metav {:mvn/version "latest"}}
+                           :main-opts  ["-m" "metav.display"]}
+           :release       {:extra-deps {metav {:mvn/version "latest"}}
+                           :main-opts  ["-m" "metav.release"]}
+           :spit          {:extra-deps {metav {:mvn/version "latest"}}
+                           :main-opts  ["-m" "metav.spit"]}
+
+           }}
